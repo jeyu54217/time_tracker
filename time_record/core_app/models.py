@@ -23,8 +23,8 @@ class Time_records(models.Model):
         )
     act_name = models.CharField(
         max_length = 255, 
-        blank = False, 
-        null = False, 
+        blank = True, 
+        null = True, 
         )
     act_note = models.TextField(
         blank = True, 
