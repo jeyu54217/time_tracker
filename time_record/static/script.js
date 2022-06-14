@@ -1,5 +1,6 @@
 
 
+
 $('#Select_Date_Submit').click(function(){
     var end_date_ary = Array();  
     var start_date_ary = Array();
@@ -12,7 +13,6 @@ $('#Select_Date_Submit').click(function(){
         return this.value
     }).get());
 
-    console.log(start_date_ary)
 
     // var data_for_post_ = {
     //     'start_date_ary[]' : start_date_ary,
@@ -26,7 +26,5 @@ $('#Select_Date_Submit').click(function(){
          // redirect current page
     // $.when(post_checked_data).done(function(){
     //     window.location.href="http://127.0.0.1:8000/"
-    // });
+    });
     
-});
-
