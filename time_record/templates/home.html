@@ -8,7 +8,7 @@
     <h3>實價登錄名錄查詢系統</h2>
   </div>
 
-  <div class="row justify-content-around bg-light p-5 border">
+  <div class="row justify-content-center bg-light p-5 border">
     <!-- code by w3codegenerator.com -->
     <div class="col-md-auto ">
       <form class="form-inline">
@@ -87,6 +87,10 @@
           <option value="30">30</option>
         </select>
       </div>
+      <div class="col"></div>
+      <div>
+        <button type="submit" class="btn btn-primary" id="Select_Date_Submit">Submit</button>
+      </div>
       
       
       
@@ -96,28 +100,33 @@
     
   <form class="form-inline">
     <div class="form-group">
-      <label>Type :</label> 
+      <label>Type : </label> 
       <select class="form-control mb-2 mr-sm-2" id="Select_Month_2">
         <option selected value="Work">Work</option>
         <option value="Break">Break</option>
         <option value="Chores">Chores</option>
         <option value="Sport">Sport</option>
       </select>
-      <label>Activity :</label> 
+      <label> － </label> 
+      <select class="form-control mb-2 mr-sm-2" id="Select_Month_2">
+        <option selected value="Work">Work</option>
+        <option value="Break">Break</option>
+        <option value="Chores">Chores</option>
+        <option value="Sport">Sport</option>
+      </select>
+      <label> － Activity : </label> 
       <div>
         <input id="act_name" name="act_name" type="text" class="form-control mb-2 mr-sm-2">
       </div>
-      <label>Note :</label> 
+      <label> － Note : </label> 
       <div>
         <textarea id="act_note" name="act_name" cols="20" rows="2" class="form-control mb-2 mr-sm-2"></textarea>
-      </div>
-      <div>
-        <button type="submit" class="btn btn-primary" id="Select_Date_Submit">Submit</button>
       </div>
     </div>
   </form>
 
-
+  <br>
+  <br>
   <form class="form-inline">
     <div class="form-group">
       <label>早 : </label> 
