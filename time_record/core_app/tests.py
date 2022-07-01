@@ -12,4 +12,4 @@ if __name__ == '__main__':
     b = [1,2,3]
 
     plt.plot(a,b)
-    plt.show
+    plt.sho

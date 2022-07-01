@@ -9,16 +9,29 @@
   </div>
 
   <div class="row justify-content-center bg-light p-5 border">
-    <!-- code by w3codegenerator.com -->
+
+
     <div class="col-md-auto ">
+      <div class="row justify-content-around">
+        <h4>Test</h4>
+      </div>
+
+      
+      <div class="row justify-content-center">
+        <form>
+          <div class="col-sm-12">
+            <input placeholder="Select date"  type="date" id="datepicker" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')">
+          </div>
+        </form>
+      </div>
+
+      <br><br>
+
+      <div class="row justify-content-center">
       <form class="form-inline">
-        <div class="form-group">
-          <label >Date :　</label>
-          <input placeholder="Select date" type="date" id="datepicker" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')">
-        </div>
        <div class="form-group">
        　<label >Time :　</label>
-         <select class="form-control mb-2 mr-sm-2"  id="Select_Month_1" >
+         <select class="form-control mb-2 mr-sm-2"  id="Select_hr_1" >
           <option value="01">01</option>
           <option value="02">02</option>
           <option value="03">03</option>
@@ -41,12 +54,14 @@
           <option value="20">20</option>
           <option value="21">21</option>
           <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
           </select>
           <label  class="mr-sm-2">:</label>
         </div>
         
         <div class="form-group">
-          <select class="form-control mb-2 mr-sm-2" id="Select_Year_2">
+          <select class="form-control mb-2 mr-sm-2" id="Select_min_1">
             <option selected value="00">00</option>
             <option value="30">30</option>
           </select>
@@ -54,7 +69,7 @@
         </div>
 
         <div class="form-group">
-          <select class="form-control mb-2 mr-sm-2" id="Select_Month_2">
+          <select class="form-control mb-2 mr-sm-2" id="Select_hr_2">
             <option value="01">01</option>
             <option value="02">02</option>
             <option value="03">03</option>
@@ -77,43 +92,47 @@
             <option value="20">20</option>
             <option value="21">21</option>
             <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
         </select>
         <label  class="mr-sm-2">:</label>
       </div>
       
       <div class="form-group">
-        <select class="form-control mb-2 mr-sm-2" id="Select_Year_2">
+        <select class="form-control mb-2 mr-sm-2" id="Select_min_2">
           <option selected value="00">00</option>
           <option value="30">30</option>
         </select>
       </div>
-      <div class="col"></div>
-      <div>
-        <button type="submit" class="btn btn-primary" id="Select_Date_Submit">Submit</button>
-      </div>
-      
-      
       
     </form>
-    
-    
-    
+  </div>
+  
+
+  <div class="row justify-content-center">
   <form class="form-inline">
     <div class="form-group">
       <label>Type : </label> 
-      <select class="form-control mb-2 mr-sm-2" id="Select_Month_2">
+      <select class="form-control mb-2 mr-sm-2" id="act_type_1">
         <option selected value="Work">Work</option>
         <option value="Break">Break</option>
         <option value="Chores">Chores</option>
         <option value="Sport">Sport</option>
       </select>
       <label> － </label> 
-      <select class="form-control mb-2 mr-sm-2" id="Select_Month_2">
+      <select class="form-control mb-2 mr-sm-2" id="act_type_2">
         <option selected value="Work">Work</option>
         <option value="Break">Break</option>
         <option value="Chores">Chores</option>
         <option value="Sport">Sport</option>
       </select>
+    </div>
+  </form>
+</div>
+
+  <div class="row justify-content-center">
+   <form class="form-inline">
+        <div class="form-group">
       <label> － Activity : </label> 
       <div>
         <input id="act_name" name="act_name" type="text" class="form-control mb-2 mr-sm-2">
@@ -123,10 +142,17 @@
         <textarea id="act_note" name="act_name" cols="20" rows="2" class="form-control mb-2 mr-sm-2"></textarea>
       </div>
     </div>
+    <div>
+      <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalCenter" id="time_submit">Submit</button>
+    </div>
   </form>
+</div>
+<br><br>
 
-  <br>
-  <br>
+  <div class="row justify-content-around">
+    <h4>Test</h4>
+  </div>
+  <div class="row justify-content-around">
   <form class="form-inline">
     <div class="form-group">
       <label>早 : </label> 
@@ -141,12 +167,45 @@
         <div>
           <input id="kcal_Night" name="act_name" type="text" class="form-control mb-2 mr-sm-2">
         </div>
-        <div>
-          <button type="submit" class="btn btn-primary" id="kcal_submit">Submit</button>
-        </div>
     </div>
   </form>
 
+  <form class="form-inline">
+    <div class="form-group">
+      <br><br><br><br>
+      <label>Goal : </label> 
+      <div>
+        <input id="kcal_Morning" name="act_name" type="text" value='1600' class="form-control mb-2 mr-sm-2">
+      </div>
+        <label>Deficit : </label> 
+      <div>
+        <input id="kcal_Noon" name="act_name" type="text" class="form-control mb-2 mr-sm-2">
+      </div>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="kcal_submit">Submit</button>
+        </div>
+    </div>
+  </form>
+</div>
+</div>  
+
+
+
+<!-- Loading Modal Bootstrape 4.3-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <br><br>
+      <div class="modal-body">
+        <div class="text-center">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <h5>Loading...</h5>
+          <br><br>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
