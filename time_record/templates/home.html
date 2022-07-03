@@ -1,212 +1,258 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-<div class="container-md ">
+<div id="booking" class="section">
+	<div class="section-center">
+		<div class="container">
+			<div class="row justify-content-around">
+				<div class="booking-form">
+					<div class="row justify-content-around " style="color:White">
+						<h2>RECORDS</h2>
+					</div>
+					<br>
 
-  <div class="row justify-content-around">
-    <h3>實價登錄名錄查詢系統</h2>
-  </div>
+					<form action = "" method = "post">
+					    <div class="row justify-content-center">
+							<div class="col-md-4">
+								<div class="row justify-content-around " style="color:White">
+									<h5>DATE</h5>
+								</div>
+					    		<div class="form-group">
+						    		<input name="date" id='startdateId'  class="form-control" type="date"  required >
+					    		</div>
+					    	</div>
+				    	</div>
 
-  <div class="row justify-content-center bg-light p-5 border">
+						
+						<div class="row justify-content-around " style="color:White">
+							<h5>TIME</h5>
+						</div>
+						<div class="row justify-content-center">
+							<div class="col-md-2">
+								<div class="form-group">
+									<span class="form-label">Hour</span>
+									<select class="form-control mb-2 mr-sm-2"  id="Select_hr_1" name="Select_hr_1" >
+									 <option value="01">01</option>
+									 <option value="02">02</option>
+									 <option value="03">03</option>
+									 <option value="04">04</option>
+									 <option value="05">05</option>
+									 <option value="06">06</option>
+									 <option value="07">07</option>
+									 <option value="08">08</option>
+									 <option selected value="09">09</option>
+									 <option value="10">10</option>
+									 <option value="11">11</option>
+									 <option value="12">12</option>
+									 <option value="13">13</option>
+									 <option value="14">14</option>
+									 <option value="15">15</option>
+									 <option value="16">16</option>
+									 <option value="17">17</option>
+									 <option value="18">18</option>
+									 <option value="19">19</option>
+									 <option value="20">20</option>
+									 <option value="21">21</option>
+									 <option value="22">22</option>
+									 <option value="23">23</option>
+									 <option value="24">24</option>
+									 </select>
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<span class="form-label">Minute</span>
+									<select class="form-control mb-2 mr-sm-2" id="Select_min_1"  name="Select_min_1">
+										<option selected value="00">00</option>
+										<option value="30">30</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<span class="form-label">Hour</span>
+									<select class="form-control mb-2 mr-sm-2"  id="Select_hr_2" name="Select_hr_2" >
+									 <option value="01">01</option>
+									 <option value="02">02</option>
+									 <option value="03">03</option>
+									 <option value="04">04</option>
+									 <option value="05">05</option>
+									 <option value="06">06</option>
+									 <option value="07">07</option>
+									 <option value="08">08</option>
+									 <option selected value="09">09</option>
+									 <option value="10">10</option>
+									 <option value="11">11</option>
+									 <option value="12">12</option>
+									 <option value="13">13</option>
+									 <option value="14">14</option>
+									 <option value="15">15</option>
+									 <option value="16">16</option>
+									 <option value="17">17</option>
+									 <option value="18">18</option>
+									 <option value="19">19</option>
+									 <option value="20">20</option>
+									 <option value="21">21</option>
+									 <option value="22">22</option>
+									 <option value="23">23</option>
+									 <option value="24">24</option>
+									 </select>
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form-group">
+									<span class="form-label">Minute</span>
+									<select class="form-control mb-2 mr-sm-2" id="Select_min_2" name="Select_min_2">
+										<option selected value="00">00</option>
+										<option value="30">30</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="row justify-content-around " style="color:White">
+							<h5>ACTIVITY</h5>
+						</div>
+
+						<div class="row justify-content-center">
+							<div class="col-md-3">
+								<div class="form>-group">
+									<select id="act_type_main" class="form-control mb-2 mr-sm-2" onchange="changeOptions()">
+										<option value="0">Work</option>
+										<option value="1">Break</option>
+										<option value="2">Sport</option>
+										<option value="3">Chores</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<select id="act_type_sub" class="form-control mb-2 mr-sm-2">
+										<optgroup id="options-0">
+											<option value="0-1">a</option>
+											<option value="0-1">b</option>
+										</optgroup>
+										<optgroup id="options-1">
+											<option value="0-2">c</option>
+											<option value="0-2">d</option>
+										</optgroup>
+										<optgroup id="options-2">
+											<option value="0-sddc1">e</option>
+											<option value="0-sdsd1">f</option>
+										</optgroup>
+										<optgroup id="options-3">
+											<option value="0-3sdsd-1">g</option>
+											<option value="0-3-d1d">h</option>
+										</optgroup>	
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="row justify-content-center">
+							<div class="col-md-4">
+								<div class="form>-group">
+									<span class="form-label">DETATL</span>
+									<input id="act_name" name="act_name" type="text" class="form-control mb-2 mr-sm-2">
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="form-group">
+									<span class="form-label">NOTE</span>
+									<textarea id="act_note" name="act_name" cols="40" rows="4" class="form-control mb-2 mr-sm-2"></textarea>
+								</div>
+							</div>
+						</div>	
+
+						<div class="row justify-content-around " style="color:White">
+							<h5>CALORIES</h5>
+						</div>
+
+						<div class="row justify-content-center">
+							<div class="col-md-2">
+								<div class="form>-group">
+									<span class="form-label">MRNG</span>
+									<input id="act_name" name="act_name" type="text" value=0 class="form-control mb-2 mr-sm-2">
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form>-group">
+									<span class="form-label">NOON</span>
+									<input id="act_name" name="act_name" type="text" value=0 class="form-control mb-2 mr-sm-2">
+								</div>
+							</div>
+
+							<div class="col-md-2">
+								<div class="form>-group">
+									<span class="form-label">NIGHT</span>
+									<input id="act_name" name="act_name" type="text" value=0 class="form-control mb-2 mr-sm-2">
+								</div>
+							</div>
+						</div>	
+
+						<div class="row justify-content-center">
+							<div class="col-md-2">
+								<div class="form>-group">
+									<span class="form-label">TARGET</span>
+									<input id="act_name" name="act_name" type="text" value=1600 class="form-control mb-2 mr-sm-2" >
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="form>-group">
+									<span class="form-label">DEFICITE</span>
+									<input id="act_name" name="act_name" type="text"  value=0 class="form-control mb-2 mr-sm-2">
+								</div>
+							</div>
+						</div>	
 
 
-    <div class="col-md-auto ">
-      <div class="row justify-content-around">
-        <h4>Test</h4>
-      </div>
+						<div class="row justify-content-center">
+							<div class="col-md-5">
+								<div class="form-btn">
+									<button type="submit" class="submit-btn" data-toggle="modal" data-target="#exampleModalCenter">SUBMIT</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-      
-      <div class="row justify-content-center">
-        <form>
-          <div class="col-sm-12">
-            <input placeholder="Select date"  type="date" id="datepicker" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')">
-          </div>
-        </form>
-      </div>
 
-      <br><br>
 
-      <div class="row justify-content-center">
-      <form class="form-inline">
-       <div class="form-group">
-       　<label >Time :　</label>
-         <select class="form-control mb-2 mr-sm-2"  id="Select_hr_1" >
-          <option value="01">01</option>
-          <option value="02">02</option>
-          <option value="03">03</option>
-          <option value="04">04</option>
-          <option value="05">05</option>
-          <option value="06">06</option>
-          <option value="07">07</option>
-          <option value="08">08</option>
-          <option selected value="09">09</option>
-          <option value="10">10</option>
-          <option value="11">11</option>
-          <option value="12">12</option>
-          <option value="13">13</option>
-          <option value="14">14</option>
-          <option value="15">15</option>
-          <option value="16">16</option>
-          <option value="17">17</option>
-          <option value="18">18</option>
-          <option value="19">19</option>
-          <option value="20">20</option>
-          <option value="21">21</option>
-          <option value="22">22</option>
-          <option value="23">23</option>
-          <option value="24">24</option>
-          </select>
-          <label  class="mr-sm-2">:</label>
-        </div>
-        
-        <div class="form-group">
-          <select class="form-control mb-2 mr-sm-2" id="Select_min_1">
-            <option selected value="00">00</option>
-            <option value="30">30</option>
-          </select>
-          <label  class="mr-sm-2"> ～ </label>
-        </div>
 
-        <div class="form-group">
-          <select class="form-control mb-2 mr-sm-2" id="Select_hr_2">
-            <option value="01">01</option>
-            <option value="02">02</option>
-            <option value="03">03</option>
-            <option value="04">04</option>
-            <option value="05">05</option>
-            <option value="06">06</option>
-            <option value="07">07</option>
-            <option value="08">08</option>
-            <option selected value="09">09</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-        </select>
-        <label  class="mr-sm-2">:</label>
-      </div>
-      
-      <div class="form-group">
-        <select class="form-control mb-2 mr-sm-2" id="Select_min_2">
-          <option selected value="00">00</option>
-          <option value="30">30</option>
-        </select>
-      </div>
-      
-    </form>
-  </div>
   
-
-  <div class="row justify-content-center">
-  <form class="form-inline">
-    <div class="form-group">
-      <label>Type : </label> 
-      <select class="form-control mb-2 mr-sm-2" id="act_type_1">
-        <option selected value="Work">Work</option>
-        <option value="Break">Break</option>
-        <option value="Chores">Chores</option>
-        <option value="Sport">Sport</option>
-      </select>
-      <label> － </label> 
-      <select class="form-control mb-2 mr-sm-2" id="act_type_2">
-        <option selected value="Work">Work</option>
-        <option value="Break">Break</option>
-        <option value="Chores">Chores</option>
-        <option value="Sport">Sport</option>
-      </select>
-    </div>
-  </form>
-</div>
-
-  <div class="row justify-content-center">
-   <form class="form-inline">
-        <div class="form-group">
-      <label> － Activity : </label> 
-      <div>
-        <input id="act_name" name="act_name" type="text" class="form-control mb-2 mr-sm-2">
-      </div>
-      <label> － Note : </label> 
-      <div>
-        <textarea id="act_note" name="act_name" cols="20" rows="2" class="form-control mb-2 mr-sm-2"></textarea>
-      </div>
-    </div>
-    <div>
-      <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalCenter" id="time_submit">Submit</button>
-    </div>
-  </form>
-</div>
-<br><br>
-
-  <div class="row justify-content-around">
-    <h4>Test</h4>
+  
+  <!-- Loading Modal Bootstrape 4.3-->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+	  <div class="modal-content">
+		<br><br>
+		<div class="modal-body">
+		  <div class="text-center">
+			<div class="spinner-border" role="status">
+			  <span class="sr-only">Loading...</span>
+			</div>
+			<h5>Loading...</h5>
+			<br><br>
+		  </div>
+		</div>
+	  </div>
+	</div>
   </div>
-  <div class="row justify-content-around">
-  <form class="form-inline">
-    <div class="form-group">
-      <label>早 : </label> 
-      <div>
-        <input id="kcal_Morning" name="act_name" type="text" class="form-control mb-2 mr-sm-2">
-      </div>
-        <label>中 : </label> 
-      <div>
-        <input id="kcal_Noon" name="act_name" type="text" class="form-control mb-2 mr-sm-2">
-      </div>
-        <label>晚 : </label> 
-        <div>
-          <input id="kcal_Night" name="act_name" type="text" class="form-control mb-2 mr-sm-2">
-        </div>
-    </div>
-  </form>
-
-  <form class="form-inline">
-    <div class="form-group">
-      <br><br><br><br>
-      <label>Goal : </label> 
-      <div>
-        <input id="kcal_Morning" name="act_name" type="text" value='1600' class="form-control mb-2 mr-sm-2">
-      </div>
-        <label>Deficit : </label> 
-      <div>
-        <input id="kcal_Noon" name="act_name" type="text" class="form-control mb-2 mr-sm-2">
-      </div>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" id="kcal_submit">Submit</button>
-        </div>
-    </div>
-  </form>
-</div>
-</div>  
 
 
 
-<!-- Loading Modal Bootstrape 4.3-->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <br><br>
-      <div class="modal-body">
-        <div class="text-center">
-          <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
-          <h5>Loading...</h5>
-          <br><br>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
-{% endblock content %}
+
+
+	
+	{% endblock content %}
