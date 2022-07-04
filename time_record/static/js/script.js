@@ -41,6 +41,7 @@ function calAutoToday() {
 }
 calAutoToday();
 
+
 // Auto calculated input value with javascript & oninput Event
 function autoCaculate() {   
     var cal_MRNG = document.getElementById('cal_MRNG').value;
