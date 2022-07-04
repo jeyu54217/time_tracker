@@ -21,6 +21,17 @@ class Act_record(models.Model):
     act_sub = models.CharField(
         max_length = 225,
         )
+    act_dtl = models.CharField(
+        max_length = 225, 
+        blank = True, 
+        null = True, 
+        default='',
+        )
+    act_note = models.TextField(
+        blank = True, 
+        null = True, 
+        default='',
+        )
 
 class Time_record(models.Model):
     dt_date = models.ForeignKey(
@@ -35,21 +46,6 @@ class Time_record(models.Model):
     tm_end_time = models.TimeField()
     tm_duration_hr = models.DurationField()    
     
-class Detail_record(models.Model):
-    act_act = models.ManyToManyField(
-        Act_record
-        )
-    dtl_act = models.CharField(
-        max_length = 225, 
-        blank = True, 
-        null = True, 
-        default='',
-        )
-    dtl_note = models.TextField(
-        blank = True, 
-        null = True, 
-        default='',
-        )
 
 class Calories_record(models.Model):
     dt_date = models.OneToOneField(
