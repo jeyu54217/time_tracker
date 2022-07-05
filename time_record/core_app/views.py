@@ -23,9 +23,23 @@ def time_record(request):
         act_note = request.POST.get('act_note')
         
         Date_record.objects.update_or_create(
-            dt_date = date
-        )
+            defaults = {'dt_date' : date}, 
+            dt_date = date,
+            )
+
         
+        Time_record.objects.update_or_create(
+            defaults = {'dt_date' : date}, 
+            dt_date_id = 
+            act_act_id = 
+            tm_start_time
+            tm_end_time
+            tm_duration_hr
+            )
+
+
+
+
         Act_record.objects.update_or_create(
             dt_date = date,
             act_main = act_type_main,
