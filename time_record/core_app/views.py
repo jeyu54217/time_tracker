@@ -29,17 +29,17 @@ def time_record(request):
             dt_date = date,
             act_main = act_type_main,
             act_sub = act_type_sub,
-            act_dtl =
-            act_note =
+            # act_dtl =
+            # act_note =
         )
         
-        Time_record.objects.update_or_create(
-            dt_date = date,
-            act_act
-            tm_start_time
-            tm_end_time
-            tm_duration_hr
-        )
+        # Time_record.objects.update_or_create(
+        #     dt_date = date,
+        #     act_act
+        #     tm_start_time
+        #     tm_end_time
+        #     tm_duration_hr
+        # )
         
         
 

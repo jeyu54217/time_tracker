@@ -11,28 +11,14 @@ class Date_record(models.Model):
         )
 
 class Act_record(models.Model):
-    dt_date = models.ForeignKey(
-        Date_record, 
-        on_delete = models.CASCADE,
-        )
     act_main = models.CharField(
         max_length = 225,
         )
     act_sub = models.CharField(
         max_length = 225,
         )
-    act_dtl = models.CharField(
-        max_length = 225, 
-        blank = True, 
-        null = True, 
-        default='',
-        )
-    act_note = models.TextField(
-        blank = True, 
-        null = True, 
-        default='',
-        )
-
+    
+ 
 class Time_record(models.Model):
     dt_date = models.ForeignKey(
         Date_record, 
@@ -46,6 +32,22 @@ class Time_record(models.Model):
     tm_end_time = models.TimeField()
     tm_duration_hr = models.DurationField()    
     
+class Detail_record(models.Model):
+    tm_time = models.OneToOneField(
+        Time_record,
+        on_delete = models.CASCADE,
+    )
+    dtl_detail = models.CharField(
+        max_length = 225, 
+        blank = True, 
+        null = True, 
+        default='',
+        )
+    dtl_note = models.TextField(
+        blank = True, 
+        null = True, 
+        default='',
+        )
 
 class Calories_record(models.Model):
     dt_date = models.OneToOneField(
@@ -64,7 +66,7 @@ class Calories_record(models.Model):
         blank = True,
         null = True,
     )
-    cal_goal = models.IntegerField(
+    cal_target = models.IntegerField(
         blank = True,
         null = True,
     )
