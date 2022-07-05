@@ -17,12 +17,7 @@ class Act_record(models.Model):
     act_sub = models.CharField(
         max_length = 225,
         )
-<<<<<<< HEAD
     
- 
-=======
-
->>>>>>> 92cbc636b75014d7e15dbdf7eb71586756d032e4
 class Time_record(models.Model):
     dt_date = models.ForeignKey(
         Date_record, 
@@ -37,18 +32,11 @@ class Time_record(models.Model):
     tm_duration_hr = models.DurationField()    
     
 class Detail_record(models.Model):
-<<<<<<< HEAD
     tm_time = models.OneToOneField(
         Time_record,
         on_delete = models.CASCADE,
     )
     dtl_detail = models.CharField(
-=======
-    act_act = models.OneToOneField(
-        Time_record
-        )
-    dtl_act = models.CharField(
->>>>>>> 92cbc636b75014d7e15dbdf7eb71586756d032e4
         max_length = 225, 
         blank = True, 
         null = True, 
@@ -59,11 +47,7 @@ class Detail_record(models.Model):
         null = True, 
         default='',
         )
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 92cbc636b75014d7e15dbdf7eb71586756d032e4
 class Calories_record(models.Model):
     dt_date = models.OneToOneField(
         Date_record,

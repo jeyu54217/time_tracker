@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+
 
 function changeOptions() {
     let act_type_main = document.getElementById("act_type_main").value;
