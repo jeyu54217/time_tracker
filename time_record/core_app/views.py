@@ -25,6 +25,7 @@ def time_record(request):
         Date_record.objects.update_or_create(
             dt_date = date
         )
+        
         Act_record.objects.update_or_create(
             dt_date = date,
             act_main = act_type_main,
