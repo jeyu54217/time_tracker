@@ -2,10 +2,6 @@ from django.db import models
 from django.utils import timezone
 
 class Date_record(models.Model):
-    id = models.BigAutoField(
-        primary_key=True,
-        default = 0,
-        )
     dt_date = models.DateField(
         default = timezone.now,
         )
@@ -29,7 +25,7 @@ class Time_record(models.Model):
         )
     tm_start_time = models.TimeField()
     tm_end_time = models.TimeField()
-    tm_duration_hr = models.DurationField()    
+    # tm_duration_hr = models.DurationField()    
     
 class Detail_record(models.Model):
     tm_time = models.OneToOneField(
