@@ -4,17 +4,17 @@ from .models import Date_record, Act_record, Time_record, Detail_record, Calorie
 
 @csrf_exempt
 def home_page(request):
-    return render(request,"home.html")
-    # return render(request,"result_page.html")
-    # return render(request,"end_page.html")
-    
-    
+    content = {
+        # 'time_record_set' : ,
+        'current_cal_obj' : Calories_record.objects.latest('dt_date'),
+        }
+    return render(request, "home.html", content)
+
+
 @csrf_exempt
 def time_record(request):
     if request.method == "POST":
-        # general date post
         post_date = request.POST.get('date')
-        # time records post
         post_time_hr_s = request.POST.get('Select_hr_0')
         post_time_min_s = request.POST.get('select_min_0')
         post_time_hr_e = request.POST.get('select_hr_1')
@@ -23,12 +23,7 @@ def time_record(request):
         post_act_sub = request.POST.get('act_type_sub')
         post_act_detail = request.POST.get('act_name')
         post_act_note = request.POST.get('act_note')
-        # calories records post
-        post_cal_MRNG = request.POST.get('cal_MRNG')
-        post_cal_NOON = request.POST.get('cal_NOON')
-        post_cal_NIGHT = request.POST.get('cal_NIGHT')
-        post_cal_TARGET = request.POST.get('cal_TARGET')
-        post_cal_DIFICITE = request.POST.get('cal_DEFICITE')
+
         if post_time_hr_s:
             Date_record.objects.update_or_create(
                 dt_date = post_date,
@@ -63,10 +58,22 @@ def time_record(request):
                     )
             return redirect('/')
         else:
-            Date_record.objects.update_or_create(
+            pass
+
+@csrf_exempt
+def calories_record(request):
+    if request.method == "POST":
+        post_date = request.POST.get('date')
+        post_cal_MRNG = request.POST.get('cal_MRNG')
+        post_cal_NOON = request.POST.get('cal_NOON')
+        post_cal_NIGHT = request.POST.get('cal_NIGHT')
+        post_cal_TARGET = request.POST.get('cal_TARGET')
+        post_cal_DIFICITE = request.POST.get('cal_DEFICITE')
+        Date_record.objects.update_or_create(
                 dt_date = post_date,
             )
-            Calories_record.objects.update_or_create(
+        # 寫入用obj
+        Calories_record.objects.update_or_create(
                 dt_date = Date_record.objects.get(dt_date = post_date),
                 defaults = {
                     'dt_date' : Date_record.objects.get(dt_date = post_date),
@@ -77,11 +84,5 @@ def time_record(request):
                     'cal_deficit': post_cal_DIFICITE,
                     }
                 )
-            return redirect('/')
+        return redirect('/')
 
-        
-
-
-@csrf_exempt
-def calories_record(request):
-    return render(request,"home.html")

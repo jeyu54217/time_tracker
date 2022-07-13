@@ -1,7 +1,7 @@
-$(document).ready(function() {
-    $('#example').DataTable();
-} );
 
+$(document).ready( function () {
+    $('#table_id').DataTable(); 
+} );
 
 function changeOptions() {
     let act_type_main = document.getElementById("act_type_main").value;
