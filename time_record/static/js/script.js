@@ -1,8 +1,11 @@
 
+// Data Table
 $(document).ready( function () {
     $('#table_id').DataTable(); 
 } );
 
+
+// Nasted Options
 function changeOptions() {
     let act_type_main = document.getElementById("act_type_main").value;
     let id = `options-${act_type_main}`;
@@ -17,7 +20,7 @@ function changeOptions() {
 }
 changeOptions();
 
-// Auto today
+// Auto-today
 var date = new Date();
 var day = date.getDate();
 var month = date.getMonth() + 1;
@@ -27,18 +30,6 @@ if (day < 10) day = "0" + day;
 var today = year + "-" + month + "-" + day;
 document.getElementById("startdateId").value = today;
 document.getElementById("cal_date").value = document.getElementById("startdateId").value;
-
-
-
-var date = new Date();
-var day = date.getDate();
-var month = date.getMonth() + 1;
-var year = date.getFullYear();
-if (month < 10) month = "0" + month;
-if (day < 10) day = "0" + day;
-var today = year + "-" + month + "-" + day;
-document.getElementById("startdateId").value = today;
-
 
 function calAutoToday() {   
     document.getElementById("cal_date").value = document.getElementById("startdateId").value;

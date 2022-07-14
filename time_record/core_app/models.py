@@ -15,11 +15,11 @@ class Act_record(models.Model):
         )
     
 class Time_record(models.Model):
-    dt_date = models.ForeignKey(
+    tm_date = models.ForeignKey(
         Date_record, 
         on_delete = models.CASCADE,
         )
-    act_act = models.ForeignKey(
+    tm_act = models.ForeignKey(
         Act_record, 
         on_delete = models.CASCADE,
         )
@@ -27,8 +27,9 @@ class Time_record(models.Model):
     tm_end_time = models.TimeField()
     # tm_duration_hr = models.DurationField()    
     
+    
 class Detail_record(models.Model):
-    tm_time = models.OneToOneField(
+    dtl_time = models.OneToOneField(
         Time_record,
         on_delete = models.CASCADE,
     )
@@ -45,7 +46,7 @@ class Detail_record(models.Model):
         )
 
 class Calories_record(models.Model):
-    dt_date = models.OneToOneField(
+    cal_date = models.OneToOneField(
         Date_record,
         on_delete = models.CASCADE,
     )
