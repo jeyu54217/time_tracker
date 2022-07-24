@@ -2,26 +2,46 @@ from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 from .models import Date_record, Act_record, Time_record, Detail_record, Calories_record
 # from core_app.models import Date_record, Act_record, Time_record, Detail_record, Calories_record
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
-TODAY_DATE = datetime.today().strftime('%Y-%m-%d')
+TIME_ZONE = timezone(timedelta(hours=+8))
+TODAY_DATE = datetime.now(TIME_ZONE).strftime('%Y-%m-%d')
+
 
 @csrf_exempt
 def home_page(request):
     """Targets:
-      1. present today's calorie record on the homepage (prevent duplicate insertion)
-      2. If the record not exisit, present the original homepage
+      1. To present today's calorie record on the homepage (prevent duplicate insertion).
+      2. If the record not exisit, present the original homepage.
     """
-    today_date_id = Date_record.objects.get(dt_date = TODAY_DATE).id if Date_record.objects.filter(dt_date = TODAY_DATE).exists() else False
-    today_cal_obj = Calories_record.objects.get(cal_date = today_date_id) if today_date_id and Calories_record.objects.filter(cal_date = today_date_id).exists() else False
-    if today_cal_obj:
-        content = {
-            # 'time_record_set' : ,
-            'today_cal_obj' : today_cal_obj,
-            }
-        return render(request, "home.html", content)
+    today_date_id = Date_record.objects.get(dt_date = TODAY_DATE).id \
+        if Date_record.objects.filter(dt_date = TODAY_DATE).exists() \
+        else False
+    today_cal_obj = Calories_record.objects.get(cal_date = today_date_id) \
+        if today_date_id and Calories_record.objects.filter(cal_date = today_date_id).exists() \
+        else False
+    time_results = Time_record.objects.all() \
+        if Time_record.objects.all().exists() \
+        else False
+    content = {}
+    
+    if today_cal_obj and time_results:
+        content.update({
+            'time_results' : time_results, 
+            'today_cal_obj' : today_cal_obj, 
+            })
+    elif today_cal_obj and not time_results:
+        content.update({
+            'today_cal_obj' : today_cal_obj, 
+            })
+    elif time_results and not today_cal_obj:
+        content.update({
+            'time_results' : time_results, 
+            })
     else:
-        return render(request, "home.html")
+        pass
+    
+    return render(request, "home.html", content)
     
 
 
