@@ -8,7 +8,7 @@ TODAY_DATE = datetime.today().strftime('%Y-%m-%d')
 
 @csrf_exempt
 def home_page(request):
-    """_Targets_
+    """Targets:
       1. present today's calorie record on the homepage (prevent duplicate insertion)
       2. If the record not exisit, present the original homepage
     """
