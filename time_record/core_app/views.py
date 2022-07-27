@@ -11,8 +11,8 @@ TODAY_DATE = datetime.now(TIME_ZONE).strftime('%Y-%m-%d')
 @csrf_exempt
 def home_page(request):
     """Targets:
-      1. To present today's calorie record on the homepage (prevent duplicate insertion).
-      2. If the record not exisit, present the original homepage.
+      1. To present today's calorie record on the homepage if that exist (for duplicate typing prevention).
+      2. Rendering time_results for datatable.
     """
     today_date_id = Date_record.objects.get(dt_date = TODAY_DATE).id \
         if Date_record.objects.filter(dt_date = TODAY_DATE).exists() \
@@ -23,8 +23,8 @@ def home_page(request):
     time_results = Time_record.objects.all() \
         if Time_record.objects.all().exists() \
         else False
-    content = {}
     
+    content = {}
     if today_cal_obj and time_results:
         content.update({
             'time_results' : time_results, 
