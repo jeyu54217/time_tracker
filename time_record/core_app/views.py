@@ -11,7 +11,7 @@ TODAY_DATE = datetime.now(TIME_ZONE).strftime('%Y-%m-%d')
 @csrf_exempt
 def home_page(request):
     """Targets:
-      1. To present today's calorie record on the homepage if that exist (for duplicate typing prevention).
+      1. To present today's calorie record on the homepage if exist (for duplicate typing prevention).
       2. Rendering time_results for datatable.
     """
     today_date_id = Date_record.objects.get(dt_date = TODAY_DATE).id \
