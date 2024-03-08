@@ -1,0 +1,12 @@
+.custom-bg-color {
+    background-color: #e7e4e4; 
+}
+.form-control {
+    font-size: 16px !important; /* for bootstrape */
+
+}
+  
+.form-label {
+    font-size: 20px;
+    font-weight: bold;
+  }

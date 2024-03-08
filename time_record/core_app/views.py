@@ -42,8 +42,6 @@ def home_page(request):
         pass
     
     return render(request, "home.html", content)
-    
-
 
 @csrf_exempt
 def time_record(request):
