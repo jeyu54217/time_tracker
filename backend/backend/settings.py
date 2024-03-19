@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
     
-    'users',
+    'user',
     'time_tracker',   
 ]
 
@@ -167,3 +167,15 @@ SIMPLE_JWT = {
     # "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
     # "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
+
+
+# Django Email Configuration
+# https://docs.djangoproject.com/en/5.0/topics/email/
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com' # SMTP Server
+EMAIL_USE_TLS = True  # TLS is a protocol that provides secure communications on the internet for such things as email, web browsing, and other data transfers
+EMAIL_PORT = 587              
+EMAIL_HOST_USER = 'jeyu54217@gmail.com'
+EMAIL_HOST_PASSWORD = 'kdsk lgdr frbd uyob'
+
+
