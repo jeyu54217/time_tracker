@@ -181,4 +181,4 @@ __pycache__
 
 
 .DS_Store
-pyvenv.cfg
+*pyvenv.cfg
