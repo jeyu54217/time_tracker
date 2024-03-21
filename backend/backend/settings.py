@@ -23,10 +23,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    # DRF
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
-    
+    # Social Auth
+    'social_django',
+    # Apps
     'user',
     'time_tracker',   
 ]
@@ -78,7 +80,6 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -99,11 +100,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
@@ -116,7 +114,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 
 # Django Rest Framework settings
@@ -178,4 +175,10 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'jeyu54217@gmail.com'
 EMAIL_HOST_PASSWORD = 'kdsk lgdr frbd uyob'
 
-
+# Social Auth Settings
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+    )
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1021279696244-76eiutmeco59hp8mcj9cl4rvqlaa69e0.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'f4voLnIPS1fnnDQGfOKfLcm0'
