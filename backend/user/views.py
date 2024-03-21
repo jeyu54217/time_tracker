@@ -16,7 +16,6 @@ from rest_framework_simplejwt.backends import TokenBackend
 # serializers
 from .serializers import UserRegistrationSerializer
 
-
 class UserRegistrationView(APIView):
     def post(self, request):
         serializer = UserRegistrationSerializer(data = request.data)
@@ -52,8 +51,7 @@ class UserRegistrationView(APIView):
                             status = status.HTTP_201_CREATED)
         return Response(serializer.errors, 
                         status = status.HTTP_400_BAD_REQUEST)
-
-
+        
 class VerifyEmailView(APIView):
     def get(self, request):
         try:
@@ -151,17 +149,19 @@ class UserLoginView(APIView):
 
 
 class LogoutView(APIView):
-    permission_classes = [IsAuthenticated]
-
+    # Check if the user is authenticated (If the header contains valid credentials - token) else return 401
+    permission_classes = [IsAuthenticated,...]
     def post(self, request):
         try:
             # Get the refresh token from request data
             refresh_token = request.data.get('refresh_token')
             token = RefreshToken(refresh_token)
-            # Attempt to blacklist the given token
+            # Blacklist the given token
             token.blacklist()
-            return Response({'msg': 'Logout successful.'}, status=status.HTTP_205_RESET_CONTENT)
+            return Response({'msg': 'Logout successful.'}, 
+                            status=status.HTTP_205_RESET_CONTENT)
         except (TokenError, InvalidToken):
-            return Response({'msg': 'Bad token.'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'msg': 'Bad token.'}, 
+                            status=status.HTTP_400_BAD_REQUEST)
 
 

@@ -176,6 +176,8 @@ EMAIL_HOST_USER = 'jeyu54217@gmail.com'
 EMAIL_HOST_PASSWORD = 'kdsk lgdr frbd uyob'
 
 # Social Auth Settings
+# Google Doc: https://developers.google.com/identity/protocols/oauth2
+# Google console: https://console.cloud.google.com/apis/credentials
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
