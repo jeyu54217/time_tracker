@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import RoundClock from './RoundClock';
-import  {Btn30Min, BtnContinue}  from './ButtonImg';
+import  {Btn30Min, BtnContinue, GoogleLoginButton}  from './Button';
 import '../styles/TaskForm.css'; 
 
 
@@ -225,7 +225,9 @@ function TaskForm() {
                     <br />
                 </form>
             </div>
+            <GoogleLoginButton />
         </div>
+    
     );
     }
 

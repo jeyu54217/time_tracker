@@ -53,3 +53,17 @@ export function BtnDel() {
         </div>
     );
 }
+
+
+export function GoogleLoginButton() {
+    const handleLogin = () => {
+        const clientId = '1021279696244-76eiutmeco59hp8mcj9cl4rvqlaa69e0.apps.googleusercontent.com';
+        const redirectUri = 'http://127.0.0.1:8100/auth/google/callback';
+        const scope = 'email profile'; // application is requesting permission to access the user's email and profile information.
+        const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}&access_type=online`;
+    
+        window.location.href = authUrl;
+    };
+
+    return <button onClick={handleLogin}>Login with Google</button>;
+}

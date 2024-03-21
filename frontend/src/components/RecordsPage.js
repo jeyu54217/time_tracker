@@ -2,7 +2,7 @@
 
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BtnFilter, BtnDel } from './ButtonImg';
+import { BtnFilter, BtnDel } from './Button';
 import '../styles/RecordsPage.css';
 
 const records = [
