@@ -6,16 +6,27 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG')
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-DATABASES = os.getenv('DATABASES')
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.getenv('SECRET_KEY')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.getenv('DEBUG')
+
+# Database
+# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+DATABASES = {
+    "default": {
+        "ENGINE": BASE_DIR / os.getenv('DB_ENGINE') if os.getenv('DB_ENGINE')=='db.sqlite3' else os.getenv('DB_ENGINE'),
+        "NAME": os.getenv('DB_NAME'),
+        "USER": os.getenv('DB_USER') if not os.getenv('DB_USER')=='' else None,
+        "PASSWORD": os.getenv('DB_PASSWORD') if not os.getenv('DB_PASSWORD')=='' else None,
+        "HOST": os.getenv('DB_HOST') if not os.getenv('DB_HOST')=='' else None,
+        "PORT": os.getenv('DB_PORT') if not os.getenv('DB_PORT')=='' else None,
+    }
+}
 
 ALLOWED_HOSTS = []
 
