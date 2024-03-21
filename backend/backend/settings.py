@@ -1,19 +1,23 @@
-
 from pathlib import Path
 from datetime import timedelta
+
+# Load environment variables from .env file
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.getenv('SECRET_KEY')
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.getenv('DEBUG')
+# Database
+# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+DATABASES = os.getenv('DATABASES')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=ykhq7)#fzdhq+*1la99=)ae&$k6v*4v+$jwe7sff^i#4n9e9e'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = []
-
 
 # Application definition
 INSTALLED_APPS = [
@@ -32,8 +36,6 @@ INSTALLED_APPS = [
     'user',
     'time_tracker',   
 ]
-
-
 
 
 MIDDLEWARE = [
@@ -65,17 +67,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
@@ -172,8 +163,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com' # SMTP Server
 EMAIL_USE_TLS = True  # TLS is a protocol that provides secure communications on the internet for such things as email, web browsing, and other data transfers
 EMAIL_PORT = 587              
-EMAIL_HOST_USER = 'jeyu54217@gmail.com'
-EMAIL_HOST_PASSWORD = 'kdsk lgdr frbd uyob'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 # Social Auth Settings
 # Google Doc: https://developers.google.com/identity/protocols/oauth2
@@ -182,5 +173,5 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
     )
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1021279696244-76eiutmeco59hp8mcj9cl4rvqlaa69e0.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'f4voLnIPS1fnnDQGfOKfLcm0'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
