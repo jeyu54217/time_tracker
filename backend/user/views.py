@@ -126,7 +126,7 @@ class GoogleOAuth2CallbackView(APIView):
                             'msg': 'Oauth2, User log in successfully',}, 
                             status=status.HTTP_200_OK)
 
-class UserLoginView(APIView):
+class LoginView(APIView):
     def post(self, request):
         username = request.data.get('username')
         password = request.data.get('password')
@@ -144,6 +144,7 @@ class UserLoginView(APIView):
             access_token = str(refresh.access_token)
             return Response(
                 {'access_token': access_token,
+                 'user_id': user.id,
                  'msg': 'User log in successfully'},
                 status=status.HTTP_200_OK)
 

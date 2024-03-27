@@ -118,10 +118,14 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Django Rest Framework settings
+# Django Rest Framework(DRF) settings
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        # For using "permission_classes = [IsAuthenticated]" in views
+        # https://www.django-rest-framework.org/api-guide/permissions/#setting-the-permission-policy
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.AllowAny',
     ),
 }
 
