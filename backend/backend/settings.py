@@ -54,9 +54,9 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware', # Required for Django REST Framework,  responsible for processing the Authorization header.
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -142,22 +142,22 @@ SIMPLE_JWT = {
     "SIGNING_KEY": SECRET_KEY,
     "VERIFYING_KEY": "",
     "AUDIENCE": None,
-    "ISSUER": None,
+    "ISSUER": "jeyu54217",
     "JSON_ENCODER": None,
     "JWK_URL": None,
     "LEEWAY": 0,
 
     'AUTH_HEADER_TYPES': ('Bearer',), # the bearer of this token can use it to access resources. The token doesn't provide any proof of identity, it simply grants access to whoever presents it, hence the term "Bearer".
     'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
-    'USER_ID_FIELD': 'id', # Default primary key field on Django's user model.
+    'USER_ID_FIELD': 'id', # Default pk field on Django's user model.
     'USER_ID_CLAIM': 'user_id', # The claim on payload to use as the user identifier.
     "USER_AUTHENTICATION_RULE": "rest_framework_simplejwt.authentication.default_user_authentication_rule",
     
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     # "TOKEN_TYPE_CLAIM": "token_type",
-    # "TOKEN_USER_CLASS": "rest_framework_simplejwt.models.TokenUser",
+    "TOKEN_USER_CLASS": 'django.contrib.auth.models.User',
     
-    # "JTI_CLAIM": "jti",
+    "JTI_CLAIM": "jti", # JWT ID claim, setting the name of the JWT claim for the unique identifier to 'jti'
      
     # "SLIDING_TOKEN_REFRESH_EXP_CLAIM": "refresh_exp",
     # "SLIDING_TOKEN_LIFETIME": timedelta(minutes=5),
